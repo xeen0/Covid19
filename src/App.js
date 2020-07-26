@@ -9,6 +9,7 @@ import Alert from "react-bootstrap/Alert";
 import "./App.css";
 import HosData from "./Components/HosData";
 import Pie from "./Components/piechart";
+import {FiPhone , FiMail} from "react-icons/fi"
 const states = [
   "Andaman and Nicobar Islands",
   "Andhra Pradesh",
@@ -165,18 +166,19 @@ function App() {
       <Card border="light" style={{ width: "100%" }}>
         <Card.Header className="title-1"> {value}</Card.Header>
         <Card.Body>
-          <Card.Title style={{ fontSize: "1em" }}>
-            India:- Number:
+          <Card.Title >
+            India:-
+             <FiPhone/>{" :"}
             <a href={`tel:${primaryContact.number}`}>
               {primaryContact.number}
-            </a>{" "}
+            </a>
             <br/>
-            Email :
+            <FiMail/> {":"}
             <a href={`mailto:${primaryContact.email}`}>
               {primaryContact.email}
             </a>
           </Card.Title>
-          <Card.Text>Local Contact Details: <a href={`tel:${contact}`}>{contact}</a></Card.Text>
+          <Card.Text >Local Contact Details:-<span style={{ fontSize: "1em" }}> <FiPhone/> {":"}</span> <a href={`tel:${contact}`}>{contact}</a></Card.Text>
       <HosData state={value}/>
       </Card.Body>
       </Card>
