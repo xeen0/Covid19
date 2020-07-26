@@ -163,7 +163,7 @@ function App() {
         </Card.Body>
       </Card>
       <Card border="light" style={{ width: "100%" }}>
-        <Card.Header style={{ fontSize: "3vw" }}> {value}</Card.Header>
+        <Card.Header className="title-1"> {value}</Card.Header>
         <Card.Body>
           <Card.Title style={{ fontSize: "1em" }}>
             India:- Number:
