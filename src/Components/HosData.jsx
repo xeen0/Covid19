@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
 import Card from "react-bootstrap/Card";
+import Iframe from 'react-iframe'
 const  HosData= ({ state }) => {
-  const [urbanHos, setUrbanHos] = useState(0);
-  const [urbanBeds, setUrbanBeds] = useState(0);
-  const [ruralHos, setRuralHos] = useState(0);
-  const [ruralBeds, setRuralBeds] = useState(0);
-  const [totalHos, setTotalHos] = useState(0);
-  const [totalBeds, setTotalBeds] = useState(0);
+  const [urbanHos, setUrbanHos] = useState(65);
+  const [urbanBeds, setUrbanBeds] = useState(16658);
+  const [ruralHos, setRuralHos] = useState(193);
+  const [ruralBeds, setRuralBeds] = useState(6480);
+  const [totalHos, setTotalHos] = useState(258);
+  const [totalBeds, setTotalBeds] = useState(23138);
   const [hosData, setHosData] = useState(0);
   useEffect(() => {
       console.log("hosData")
@@ -19,6 +20,7 @@ const  HosData= ({ state }) => {
       const resJson2 = await res2.json();
       const data2 = await resJson2.data;
       setHosData(data2);
+      console.log(data2)
       await data2.regional.map((st) => {
           if (st.state === state) {
             setUrbanHos(st.urbanHospitals);
@@ -34,7 +36,6 @@ const  HosData= ({ state }) => {
     console.log(state)
   },[]);
   useEffect(() => {
-    console.log(hosData.regional)
     if (hosData.regional !== undefined) {
       hosData.regional.map(async (st) => {
         if (st.state == state) {
@@ -77,6 +78,7 @@ const  HosData= ({ state }) => {
           </tr>
         </tbody>
       </Table>
+      
     </div>
   );
 }

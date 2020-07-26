@@ -1,0 +1,34 @@
+.Card-title{
+    font-size: 1.5em;
+    font-family: 'Ultra', serif
+}
+.prev{
+    font-size: 2rem;
+}
+.Card-subtitle{
+    font-family:'Jua', sans-serif ;
+    font-size: 2rem
+}
+.Card-text{
+    font-family: 'Alice' , serif;
+    font-size: 1.3rem;
+}
+.dis{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+@media screen and (max-width:480px){
+    .prev{
+        font-size: 1.2rem;
+    }
+    .Card-subtitle{
+        font-size: 1.2rem;
+    }
+    .Card-text{
+        font-size: 1.1rem;
+    }
+    .dis{
+        flex-direction: column;
+    }
+}

@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import ReactApexChart from "react-apexcharts";
+import { useMediaQuery } from 'react-responsive'
 const ApexChart = ({ state }) => {
-  
+  const isMobile = useMediaQuery({
+    query: '(min-device-width: 480px)'
+  })
+const range = isMobile?20:10
   const [confirmedCases, setConfirmedCases] = useState([]);
   const [recoveryCases, setRecoveryCases] = useState([]);
   const [deaths, setDeaths] = useState([]);
@@ -25,7 +29,7 @@ const ApexChart = ({ state }) => {
         dts = [];
        await data.map((data) =>
         data.regional.map((i) => {
-          if (i.loc == state) {
+          if (i.loc === state) {
             dts.push(data.day);
             cc.push(i.totalConfirmed);
             rc.push(i.discharged);
@@ -131,7 +135,7 @@ const ApexChart = ({ state }) => {
       title: {
         text: "Date",
       },
-      range: 20,
+      range: range
     },
     tooltip: {
       shared: false,

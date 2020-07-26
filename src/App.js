@@ -8,6 +8,7 @@ import { Autocomplete } from "@material-ui/lab";
 import Alert from "react-bootstrap/Alert";
 import "./App.css";
 import HosData from "./Components/HosData";
+import Pie from "./Components/piechart";
 const states = [
   "Andaman and Nicobar Islands",
   "Andhra Pradesh",
@@ -83,6 +84,7 @@ function App() {
         if (re.loc === value) {
           setContact(re.number);
         }
+        return
       });
       await setPrimaryContact(pc);
      await data1.regional.map( (cas) => {
@@ -114,6 +116,7 @@ function App() {
     }
   }, [value]);
   return (
+    
     <div className="App">
       <div style={{ width: "98%", margin: "auto" }}>
         <Autocomplete
@@ -167,15 +170,19 @@ function App() {
             <a href={`tel:${primaryContact.number}`}>
               {primaryContact.number}
             </a>{" "}
-            , Email :
+            <br/>
+            Email :
             <a href={`mailto:${primaryContact.email}`}>
               {primaryContact.email}
             </a>
           </Card.Title>
-          <Card.Text>Local Contact Details: {contact}</Card.Text>
+          <Card.Text>Local Contact Details: <a href={`tel:${contact}`}>{contact}</a></Card.Text>
       <HosData state={value}/>
       </Card.Body>
       </Card>
+      {/* <Card style={{width:"30rem"}}> */}
+      <Pie/>
+      {/* </Card> */}
     </div>
   );
 }

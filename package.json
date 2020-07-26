@@ -3,7 +3,6 @@
   "name": "covid19",
   "version": "0.1.0",
   "private": true,
-  
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/lab": "^4.0.0-alpha.56",
@@ -14,10 +13,16 @@
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
     "react": "^16.13.1",
+    "react-alert": "^7.0.2",
+    "react-alert-template-basic": "^1.0.0",
     "react-apexcharts": "^1.3.7",
     "react-bootstrap": "^1.3.0",
+    "react-bootstrap-sweetalert": "^5.2.0",
     "react-charts": "^2.0.0-beta.7",
     "react-dom": "^16.13.1",
+    "react-iframe": "^1.8.0",
+    "react-responsive": "^8.1.0",
+    "react-reveal": "^1.2.2",
     "react-scripts": "3.4.1"
   },
   "scripts": {
