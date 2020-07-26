@@ -9,6 +9,8 @@ import Alert from "react-bootstrap/Alert";
 import "./App.css";
 import HosData from "./Components/HosData";
 import Pie from "./Components/piechart";
+import { useMediaQuery } from 'react-responsive'
+
 import {FiPhone , FiMail} from "react-icons/fi"
 const states = [
   "Andaman and Nicobar Islands",
@@ -57,7 +59,9 @@ function App() {
   const [deaths, setDeaths] = useState("0");
   const [casesData, setCasesData] = useState();
   
-  
+  const isMobile = useMediaQuery({
+    query: '(min-device-width: 480px)'
+  })
 
   useEffect(() => {
     const fetchData = async () => {
@@ -166,13 +170,14 @@ function App() {
       <Card border="light" style={{ width: "100%" }}>
         <Card.Header className="title-1"> {value}</Card.Header>
         <Card.Body>
-          <Card.Title >
+          <Card.Title  style={{ fontSize: "1.1em" }} >
             India:-
              <FiPhone/>{" :"}
             <a href={`tel:${primaryContact.number}`}>
               {primaryContact.number}
             </a>
-            <br/>
+            {'    '}
+              {!isMobile?(<br/>):(<></>)}
             <FiMail/> {":"}
             <a href={`mailto:${primaryContact.email}`}>
               {primaryContact.email}
